@@ -26,8 +26,8 @@
     <div class="w-full text-center"><button type="button" onclick="solve()" class="text-3xl border-2 border-black">SOLVE!</button></div>
     <div class="w-full text-center text-3xl" id="answer"></div>
     <script>
-        let inputunit = `<textarea wrap="soft" maxlength="5" style="resize: none;" class="inline-block border-black border-2 w-1/3 h-8"></textarea>
-                        <textarea wrap="soft" maxlength="5" style="resize: none;" class="inline-block border-black border-2 w-1/3 h-8"></textarea>`;
+        // let inputunit = `<textarea wrap="soft" maxlength="5" style="resize: none;" class="inline-block border-black border-2 w-1/3 h-8"></textarea>
+        //                 <textarea wrap="soft" maxlength="5" style="resize: none;" class="inline-block border-black border-2 w-1/3 h-8"></textarea>`;
         let inputtemp = `<div class="hidden w-full">
                              <textarea wrap="soft" maxlength="5" style="resize: none;" class="inline-block border-black border-2 w-1/3 h-8"></textarea>
                              <textarea wrap="soft" maxlength="5" style="resize: none;" class="inline-block border-black border-2 w-1/3 h-8"></textarea>
@@ -40,8 +40,8 @@
         {
             if (inputscnt < 10)
             {
-                let child = inputsdiv.children[inputscnt];
                 inputscnt ++;
+                let child = inputsdiv.children[inputscnt];
                 // children[inputscnt].innerHTML = inputunit;
                 child.classList.replace("hidden", "inline-block");
             }
