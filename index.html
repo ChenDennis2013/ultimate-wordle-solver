@@ -1,104 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./words.js"></script>
-    <title>Ultimate Wordle Solver</title>
+<meta http-equiv="refresh" content="3;url=./alpha/">
 </head>
 <body>
-    <h1 class="text-center text-5xl font-mono">The Ultimate Wordle Solver</h1>
-    <div class="p-30"></div>
-    <div class="text-right w-1/6"><button type="button" class="text-2xl border-2 border-black" onclick="addAnUnit()">+</button></div>
-    <div id="inputs" class="w-full text-center text-xl font-mono">
-        <div class="inline-block w-full">
-            <p class="text-left w-1/3 inline-block">guessed words:</p>
-            <p class="text-left w-1/3 inline-block">colors of words(g:green, r:gray, y:yellow):</p>
-        </div>
-        <div class="inline-block w-full">
-            <textarea wrap="soft" maxlength="5" style="resize: none;" class="inline-block border-black border-2 w-1/3 h-8"></textarea>
-            <textarea wrap="soft" maxlength="5" style="resize: none;" class="inline-block border-black border-2 w-1/3 h-8"></textarea>
-        </div>
-    </div>
-    <div class="w-full text-center"><button type="button" onclick="solve()" class="text-3xl border-2 border-black">SOLVE!</button></div>
-    <div class="w-full text-center text-3xl" id="answer"></div>
-    <script>
-        let inputunit = `<div class="inline-block w-full">
-                            <textarea wrap="soft" maxlength="5" style="resize: none;" class="inline-block border-black border-2 w-1/3 h-8"></textarea>
-                            <textarea wrap="soft" maxlength="5" style="resize: none;" class="inline-block border-black border-2 w-1/3 h-8"></textarea>
-                        </div>`
-        let answerdiv = document.getElementById("answer");
-        let inputsdiv = document.getElementById("inputs");
-        let inputscnt = 1;
-        function addAnUnit()
-        {
-            if (inputscnt < 5)
-            {
-                inputsdiv.innerHTML += inputunit;
-                inputscnt ++;
-            }
-            else
-            {
-                window.alert("Too many inputs!");
-            }
-        }
-        function solve()
-        {
-            if (check()) go()
-            else window.alert("Invalid inputs!");
-        }
-        function get(a, b)
-        {
-            let res = "rrrrr";
-            for (let i = 0; i < 5; i ++)
-                if (a[i] == b[i])
-                {
-                    res = res.slice(0, i) + 'g' + res.slice(i + 1, 5);
-                    a = a.slice(0, i) + '.' + a.slice(i + 1, 5);
-                }
-            for (let i = 0; i < 5; i ++)
-            {
-                if (res[i] == 'g') continue;
-                if (a.includes(b[i]))
-                {
-                    res = res.slice(0, i) + 'y' + res.slice(i + 1, 5);
-                    let t = a.indexOf(b[i])
-                    a = a.slice(0, t) + '.' + a.slice(t + 1, 5);
-                }
-            }
-            return res;
-        }
-        function check()
-        {
-            let children = inputsdiv.children;
-            for (let i = 1; i <= inputscnt; i ++)
-            {
-                let t = children[i].children;
-                if (t[0].value.length != 5 || t[1].value.length != 5) return 0;
-                for (let j = 0; j < 5; j ++)
-                {
-                    let q = t[1].value[j];
-                    if (q != 'g' && q != 'r' && q != 'y') return 0;
-                }
-            }
-            return 1;
-        }
-        function go()
-        {
-            answerdiv.innerHTML = "<p>results:</p>";
-            let children = inputsdiv.children;
-            words.forEach((x) =>
-            {
-                for (let i = 1; i <= inputscnt; i ++)
-                {
-                    let t = children[i].children;
-                    console.log(x + " vs " + t[0].value + " = " + get(x, t[0].value));
-                    if (get(x, t[0].value) != t[1].value) return;
-                }
-                answerdiv.innerHTML += x + ', ';
-            });
-        }
-    </script>
+<p>This page is redirecting to <a href="./alpha/">the alpha version</a>.</p>
+<a href="./beta/">Here is the beta version.</a>
 </body>
 </html>
