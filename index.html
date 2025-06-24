@@ -71,7 +71,7 @@
         }
         function solve()
         {
-            if (check()) go()
+            if (check()) go();
             else window.alert("Invalid inputs!");
         }
         function get(a, b)
@@ -114,6 +114,7 @@
         {
             answerdiv.innerHTML = "<p>results:</p>";
             let children = inputsdiv.children;
+            let nnn = 0;
             words.forEach((x) =>
             {
                 for (let i = 1; i <= inputscnt; i ++)
@@ -122,8 +123,11 @@
                     // console.log(x + " vs " + t[0].value + " = " + get(x, t[0].value));
                     if (get(x, t[0].value) != t[1].value) return;
                 }
-                answerdiv.innerHTML += x + ', ';
+                answerdiv.innerHTML += (nnn ? ", " : "") + x;
+                nnn = 1;
             });
+            if (!nnn) answerdiv.innerHTML += "NOTHING";
+            answerdiv.innerHTML += ".";
         }
     </script>
 </body>
